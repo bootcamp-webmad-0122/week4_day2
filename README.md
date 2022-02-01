@@ -54,19 +54,21 @@
   * Nombre del archivo handlebars, sin extensión
   * **Objeto** con datos (opcional)
 - Los archivos de HBS interpolan propiedades con dos llaves (solo mostrar) o tres (renderizar)
+- Los _helpers_ principales de HBS son `if`, `each`, `unless` y `with`
 
 
 ## Main points: layout
 
-- El layout debe tener el nombre `layout.hbs`
-- Debe contener la información dinámica en `{{{ body }}}`
+- El archivo de plantilla debe nombrarse `layout.hbs`.
+- Este será siempre renderizado por el servidor.
+- El contenido de cada vista específica será renderizado en su `{{{ body }}}`.
 
 
 ## Main points: partials
 
-- Para usar partials es necesario:
+- Para usar _partials_ es necesario:
   * Requerir `hbs`
   * Registrar su directorio a través de `hbs.registerPartials(path)`
-  * Incluir los parciales (sin guiones medios en el nombre) en el directorio registrado (`views/partials`)
-- Un partial puede ser incluido en un hbs mediante al sintaxis `{{> partialName}}`
+  * Incluir los parciales (sin guiones medios en el nombre) en el directorio registrado (generalmente `views/partials`)
+- Un _partial_ puede ser incluido en un archivo de HBS mediante al sintaxis `{{>partialName}}`
 
