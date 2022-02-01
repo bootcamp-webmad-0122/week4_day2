@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de inicio</title>
+</head>
+
+<body>
+    <h1>{{name}} {{lastName}}'s student card</h1>
+    <hr>
+
+    <h4>Personal info</h4>
+    {{#with address}}
+    <p>Calle {{street}}, número {{number}} - {{postalCode}}, {{{neighbourhood}}}</p>
+    {{/with}}
+    <hr>
+
+    <h4>Datos de tu Bootcamp de {{bootcamp}}</h4>
+    {{#if teacher}}
+    <p>Tu profesor/a es {{teacher}}</p>
+    {{else}}
+    <p>Profesor/a aún no asignado</p>
+    {{/if}}
+
+    <p>Asignaturas:</p>
+    <ul>
+        {{#each subjects}}
+        <li>{{this}}</li>
+        {{else}}
+        <li>Asignaturas por determinar...</li>
+        {{/each}}
+    </ul>
+    <hr>
+
+    <h4>Datos de pago</h4>
+    {{#unless bankAccount}}
+    <p>ATENCIÓN: necesitamos tu información bancaria</p>
+    {{/unless}}
+
+    {{#if debt}}
+    <p>Tienes una deuda de {{debt}}€</p>
+    {{else}}
+    <p>Tus pagos están al día</p>
+    {{/if}}
+
+
+</body>
+
+</html>
